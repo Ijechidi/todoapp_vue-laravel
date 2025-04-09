@@ -141,24 +141,6 @@ todoapp_vue-laravel/
 - `PUT /api/categories/{id}` - Met à jour une catégorie
 - `DELETE /api/categories/{id}` - Supprime une catégorie
 
-## Conseils pour les débutants
-
-1. **Comprendre Laravel**
-   - Laravel est un framework PHP qui suit le modèle MVC (Modèle-Vue-Contrôleur)
-   - Les routes définissent les URLs de l'application
-   - Les contrôleurs gèrent la logique métier
-   - Les modèles représentent les données de la base de données
-
-2. **Comprendre Vue.js**
-   - Vue.js est un framework JavaScript pour créer des interfaces utilisateur
-   - Les composants sont des éléments réutilisables
-   - La réactivité permet des mises à jour automatiques de l'interface
-
-3. **Bonnes pratiques**
-   - Toujours valider les données côté serveur
-   - Utiliser des migrations pour la structure de la base de données
-   - Commenter votre code
-   - Tester régulièrement votre application
 
 ## Ressources utiles
 
