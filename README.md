@@ -1,66 +1,179 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Todo App avec Laravel et Vue.js
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Une application de gestion de tâches moderne développée avec Laravel 10 et Vue.js 3.
 
-## About Laravel
+## Fonctionnalités
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- ✅ Création, modification et suppression de tâches
+- ✅ Organisation des tâches par catégories
+- ✅ Personnalisation des catégories avec des couleurs
+- ✅ Filtrage des tâches (toutes, actives, complétées)
+- ✅ Interface utilisateur moderne et intuitive
+- ✅ Persistance des données dans une base de données MySQL
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prérequis
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Avant de commencer, assurez-vous d'avoir installé :
 
-## Learning Laravel
+- PHP 8.1 ou supérieur
+- Composer (gestionnaire de paquets PHP)
+- Node.js et npm
+- MySQL ou MariaDB
+- Git (optionnel)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Cloner le projet**
+```bash
+git clone [URL_DU_PROJET]
+cd todoapp_vue-laravel
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Installer les dépendances PHP**
+```bash
+composer install
+```
 
-## Laravel Sponsors
+3. **Installer les dépendances JavaScript**
+```bash
+npm install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+4. **Configurer l'environnement**
+- Copier le fichier `.env.example` en `.env`
+```bash
+cp .env.example .env
+```
+- Générer une clé d'application
+```bash
+php artisan key:generate
+```
+- Configurer la base de données dans le fichier `.env` :
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=todoapp
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-### Premium Partners
+5. **Créer la base de données**
+- Créer une base de données MySQL nommée `todoapp`
+- Exécuter les migrations
+```bash
+php artisan migrate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Démarrage de l'application
 
-## Contributing
+1. **Démarrer le serveur Laravel**
+```bash
+php artisan serve
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Démarrer le serveur de développement Vite**
+```bash
+npm run dev
+```
 
-## Code of Conduct
+3. **Accéder à l'application**
+Ouvrez votre navigateur et accédez à :
+```
+http://localhost:8000
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Structure du projet
 
-## Security Vulnerabilities
+```
+todoapp_vue-laravel/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── TodoController.php
+│   │       └── CategoryController.php
+│   └── Models/
+│       ├── Todo.php
+│       └── Category.php
+├── database/
+│   └── migrations/
+│       ├── create_todos_table.php
+│       └── create_categories_table.php
+├── resources/
+│   ├── js/
+│   │   ├── App.vue
+│   │   └── app.js
+│   └── views/
+│       └── welcome.blade.php
+├── routes/
+│   ├── api.php
+│   └── web.php
+└── public/
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Utilisation
 
-## License
+### Gestion des tâches
+- **Ajouter une tâche** : Saisissez le texte dans le champ et appuyez sur Entrée
+- **Modifier une tâche** : Double-cliquez sur le texte de la tâche
+- **Supprimer une tâche** : Cliquez sur l'icône de corbeille
+- **Marquer comme complétée** : Cochez la case à gauche de la tâche
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Gestion des catégories
+- **Ajouter une catégorie** : Utilisez le formulaire en haut de l'application
+- **Modifier une catégorie** : Cliquez sur l'icône de crayon
+- **Supprimer une catégorie** : Cliquez sur l'icône de corbeille
+- **Associer une tâche à une catégorie** : Utilisez le menu déroulant à droite de la tâche
+
+## API Endpoints
+
+### Tâches
+- `GET /api/todos` - Liste toutes les tâches
+- `POST /api/todos` - Crée une nouvelle tâche
+- `GET /api/todos/{id}` - Affiche une tâche spécifique
+- `PUT /api/todos/{id}` - Met à jour une tâche
+- `DELETE /api/todos/{id}` - Supprime une tâche
+
+### Catégories
+- `GET /api/categories` - Liste toutes les catégories
+- `POST /api/categories` - Crée une nouvelle catégorie
+- `GET /api/categories/{id}` - Affiche une catégorie spécifique
+- `PUT /api/categories/{id}` - Met à jour une catégorie
+- `DELETE /api/categories/{id}` - Supprime une catégorie
+
+## Conseils pour les débutants
+
+1. **Comprendre Laravel**
+   - Laravel est un framework PHP qui suit le modèle MVC (Modèle-Vue-Contrôleur)
+   - Les routes définissent les URLs de l'application
+   - Les contrôleurs gèrent la logique métier
+   - Les modèles représentent les données de la base de données
+
+2. **Comprendre Vue.js**
+   - Vue.js est un framework JavaScript pour créer des interfaces utilisateur
+   - Les composants sont des éléments réutilisables
+   - La réactivité permet des mises à jour automatiques de l'interface
+
+3. **Bonnes pratiques**
+   - Toujours valider les données côté serveur
+   - Utiliser des migrations pour la structure de la base de données
+   - Commenter votre code
+   - Tester régulièrement votre application
+
+## Ressources utiles
+
+- [Documentation Laravel](https://laravel.com/docs)
+- [Documentation Vue.js](https://vuejs.org/guide)
+- [Tutoriel Laravel pour débutants](https://laravel.com/docs/10.x/installation)
+- [Tutoriel Vue.js pour débutants](https://vuejs.org/guide/introduction.html)
+
+## Support
+
+Si vous rencontrez des problèmes ou avez des questions :
+1. Consultez la documentation
+2. Recherchez sur Stack Overflow
+3. Créez une issue sur GitHub
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
