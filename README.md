@@ -156,6 +156,3 @@ Si vous rencontrez des problèmes ou avez des questions :
 2. Recherchez sur Stack Overflow
 3. Créez une issue sur GitHub
 
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
